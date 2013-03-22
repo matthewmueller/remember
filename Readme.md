@@ -22,7 +22,7 @@ This library uses document-level event delegation to capture input. This allows 
 
 ### `Remember([options])`
 
-Initializes remember and pulls in previously stored values. Options include:
+Initializes remember and pulls in the previously stored values. Options include:
 
 * `namespace`: used to namespace the values in localstorage. Defaults to `remember:`.
 
