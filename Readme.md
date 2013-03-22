@@ -7,7 +7,8 @@
 
 ```js
 var remember = require('remember');
-remember().except('input[type=password]');
+remember()
+  .except('input[type=password]');
 ```
 
 ## Installation
