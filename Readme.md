@@ -40,6 +40,10 @@ Clears localstorage
 
 Unbinds all textareas and inputs.
 
+## Special Thanks
+
+[Garlic.js](http://garlicjs.org/) was the source of inspiration for this project and a good reference.
+
 ## License
 
   MIT
