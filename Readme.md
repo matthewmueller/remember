@@ -27,15 +27,15 @@ Initializes remember and pulls in the previously stored values. Options include:
 
 * `namespace`: used to namespace the values in localstorage. Defaults to `remember:`.
 
-### `#except(selector)`
+### `.except(selector)`
 
 Excludes elements that match the selector.
 
-### `#clear()`
+### `.clear()`
 
 Clears localstorage
 
-### `#unbind()`
+### `.unbind()`
 
 Unbinds all textareas and inputs.
 
