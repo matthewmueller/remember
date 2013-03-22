@@ -16,7 +16,7 @@ remember().except('input[type=password]');
 
 ## Design
 
-This library uses document-level event delegation to capture input. This allows for efficient and "live" bindings. The caveat to this approach is that if you use `e.stopPropagation()` within another input binding, remember's bindings will not trigger and the input will not be save.
+This library uses document-level event delegation to capture input. This allows for efficient and "live" bindings. The caveat to this approach is that if you use `e.stopPropagation()` within another input binding, remember's bindings will not trigger and the input will not be saved.
 
 ## API
 
