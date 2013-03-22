@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>Remember component</title>
+</head>
+<body>
+  <h1>Remember component</h1>
+
+  <textarea name="hi" id="" cols="30" rows="10"></textarea>
+
+  <input type="text">
+  <input type="email">
+  <input type="date">
+  <input type="file">
+  <input type="password">
+
+  <input type="radio" name="sex" value="male">Male<br>
+  <input type="radio" name="sex" value="female">Female
+
+  <input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
+  <input type="checkbox" name="vehicle" value="Car">I have a car
+
+  <script src="../build/build.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var remember = require('remember');
+    remember().except('input[type=email]')
+  </script>
+</body>
+</html>

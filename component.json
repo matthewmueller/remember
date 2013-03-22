@@ -1,0 +1,19 @@
+{
+  "name": "remember",
+  "repo": "matthewmueller/remember",
+  "description": "use localstorage to remember input values",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/query": "*",
+    "component/delegate": "*",
+    "matthewmueller/store.js" : "*",
+    "jkroso/unique-selector" : "*",
+    "component/bind" : "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ]
+}
