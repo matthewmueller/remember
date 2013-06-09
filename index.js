@@ -39,6 +39,7 @@ function Remember(options) {
   if(!(this instanceof Remember)) return new Remember(options);
   options = options || {}
   this.excepts = [];
+  this.ids = {};
   var self = this;
 
   // localstorage namespace
@@ -124,10 +125,15 @@ Remember.prototype.unbind = function() {
  */
 
 Remember.prototype.pull = function() {
+  var self = this;
   var ns = this.namespace;
 
   this.each(function(key) {
-    this.fill(key.slice(ns.length), store.get(key));
+    var k = key.slice(ns.length);
+    var val = store.get(key);
+    this.ids[key] = setInterval(function() {
+      self.fill(k, val);
+    }, 200);
   });
 
   return this;
@@ -150,6 +156,8 @@ Remember.prototype.fill = function(sel, val) {
   } else if (el.value !== undefined) {
     el.value = val;
   }
+
+  clearInterval(this.ids[this.namespace + sel]);
 
   return this;
 };
