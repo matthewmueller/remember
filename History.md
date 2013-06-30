@@ -1,4 +1,9 @@
 
+0.0.3 / 2013-06-29
+==================
+
+  * ignore classes on unique selectors. they may be transient.
+
 0.0.2 / 2013-06-09
 ==================
 
