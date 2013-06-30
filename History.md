@@ -1,4 +1,9 @@
 
+0.0.4 / 2013-06-29
+==================
+
+  * added event dispatching to trigger change and input events
+
 0.0.3 / 2013-06-29
 ==================
 
