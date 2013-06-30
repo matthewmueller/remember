@@ -20,6 +20,7 @@ var inputs = 'input, textarea',
  */
 
 var rbutton = /radio|checkbox/;
+var rclass = /\.\w+/g;
 
 /**
  * Expose `Remember`
@@ -37,7 +38,7 @@ module.exports = Remember;
 
 function Remember(options) {
   if(!(this instanceof Remember)) return new Remember(options);
-  options = options || {}
+  options = options || {};
   this.excepts = [];
   this.ids = {};
   var self = this;
@@ -54,7 +55,7 @@ function Remember(options) {
   // bindings
   delegate.bind(document, inputs, 'input', this.oninput);
   delegate.bind(document, buttons, 'click', this.onselect);
-};
+}
 
 /**
  * Except
@@ -69,7 +70,7 @@ Remember.prototype.except = function(str) {
 
   for (var i = 0, len = els.length; i < len; i++) {
     this.excepts.push(els[i]);
-  };
+  }
 
   return this;
 };
@@ -90,7 +91,7 @@ Remember.prototype.each = function(fn) {
   }
 
   return this;
-}
+};
 
 /**
  * Clear remember
@@ -178,6 +179,9 @@ Remember.prototype.input = function(e) {
       val = el.value,
       ns = this.namespace;
 
+  // ignore classes, too transient
+  sel = sel.replace(rclass, '');
+
   store.set(ns + sel, val);
 };
 
@@ -197,6 +201,9 @@ Remember.prototype.select = function(e) {
       checked = el.checked,
       ns = this.namespace;
 
+  // ignore classes, too transient
+  sel = sel.replace(rclass, '');
+
   // If it's a radio button, uncheck all the others
   if(el.name && 'radio' === el.type) {
     var set = query.all('input[type=radio][name=' + el.name + ']');
@@ -204,7 +211,7 @@ Remember.prototype.select = function(e) {
       if(set[i] !== el) {
         store.set(ns + unique(set[i]), !checked);
       }
-    };
+    }
   }
 
   store.set(ns + sel, checked);
