@@ -152,10 +152,12 @@ Remember.prototype.fill = function(sel, val) {
   if(!el) return;
 
   if (rbutton.test(el.type)) {
-    if(val) el.setAttribute('checked', 'checked');
+    if (val) el.setAttribute('checked', 'checked');
     else el.removeAttribute('checked');
+    dispatch(el, 'change');
   } else if (el.value !== undefined) {
     el.value = val;
+    dispatch(el, 'input');
   }
 
   clearInterval(this.ids[this.namespace + sel]);
@@ -216,3 +218,13 @@ Remember.prototype.select = function(e) {
 
   store.set(ns + sel, checked);
 };
+
+/**
+ * Dispatch a synthetic event
+ */
+
+function dispatch(el, event) {
+  var e = document.createEvent('HTMLEvents');
+  e.initEvent(event, true, true);
+  el.dispatchEvent(e);
+}
