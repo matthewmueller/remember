@@ -158,6 +158,7 @@ Remember.prototype.fill = function(sel, val) {
   } else if (el.value !== undefined) {
     el.value = val;
     dispatch(el, 'input');
+    dispatch(el, 'blur');
   }
 
   clearInterval(this.ids[this.namespace + sel]);
