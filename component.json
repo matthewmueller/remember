@@ -7,7 +7,7 @@
   "dependencies": {
     "component/query": "*",
     "component/delegate": "*",
-    "matthewmueller/store.js" : "*",
+    "matthewmueller/store.js" : "0.0.1",
     "jkroso/unique-selector" : "*",
     "component/bind" : "*"
   },
