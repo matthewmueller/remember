@@ -5,7 +5,7 @@
 <body>
   <h1>Remember component</h1>
 
-  <textarea name="hi" id="" cols="30" rows="10"></textarea>
+  <textarea name="hi" cols="30" rows="10"></textarea>
 
   <input type="text">
   <input type="email">
@@ -23,6 +23,20 @@
   <script type="text/javascript">
     var remember = require('remember');
     remember().except('input[type=email]')
+
+    var textarea = document.getElementsByTagName('textarea')[0];
+
+    setTimeout(function() {
+      textarea.value = 'hi...'
+    }, 2000)
+
+    textarea.addEventListener('change', function(e) {
+      console.log('changed!');
+    })
+
+    textarea.addEventListener('input', function(e) {
+      console.log('inputted!');
+    })
   </script>
 </body>
 </html>
