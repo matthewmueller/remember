@@ -1,4 +1,10 @@
 
+0.0.5 / 2015-01-05
+==================
+
+  * fix class replacement. update dependencies
+  * also dispatch blur
+
 0.0.4 / 2013-06-29
 ==================
 
