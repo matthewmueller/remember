@@ -5,11 +5,11 @@
   "version": "0.0.4",
   "keywords": [],
   "dependencies": {
-    "component/query": "*",
-    "component/delegate": "*",
-    "matthewmueller/store.js" : "*",
-    "jkroso/unique-selector" : "*",
-    "component/bind" : "*"
+    "component/query": "0.0.3",
+    "component/delegate": "0.2.3",
+    "marcuswestin/store.js" : "v1.3.17",
+    "yields/uniq-selector" : "0.2.2",
+    "component/bind" : "1.0.0"
   },
   "development": {},
   "license": "MIT",

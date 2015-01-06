@@ -2,25 +2,25 @@
  * Module Dependencies
  */
 
-var query = require('query'),
-    delegate = require('delegate'),
-    bind = require('bind'),
-    unique = require('unique-selector'),
-    store = require('store');
+var unique = require('uniq-selector');
+var delegate = require('delegate');
+var store = require('store');
+var query = require('query');
+var bind = require('bind');
 
 /**
  * Selectors
  */
 
-var inputs = 'input, textarea',
-    buttons = 'input[type=checkbox], input[type=radio]';
+var buttons = 'input[type=checkbox], input[type=radio]';
+var inputs = 'input, textarea';
 
 /**
  * Regex
  */
 
 var rbutton = /radio|checkbox/;
-var rclass = /\.\w+/g;
+var rclass = /\.[_\-A-Z][_\-A-Z0-9]*/ig;
 
 /**
  * Expose `Remember`
@@ -65,8 +65,8 @@ function Remember(options) {
  */
 
 Remember.prototype.except = function(str) {
-  var els = query.all(str),
-      excepts = this.excepts;
+  var els = query.all(str);
+  var excepts = this.excepts;
 
   for (var i = 0, len = els.length; i < len; i++) {
     this.excepts.push(els[i]);
@@ -158,7 +158,6 @@ Remember.prototype.fill = function(sel, val) {
   } else if (el.value !== undefined) {
     el.value = val;
     dispatch(el, 'input');
-    dispatch(el, 'blur');
   }
 
   clearInterval(this.ids[this.namespace + sel]);
@@ -178,13 +177,12 @@ Remember.prototype.input = function(e) {
   var el = e.target;
   if(~this.excepts.indexOf(el)) return this;
 
-  var sel = unique(el),
-      val = el.value,
-      ns = this.namespace;
+  var sel = unique(el);
+  var val = el.value;
+  var ns = this.namespace;
 
   // ignore classes, too transient
   sel = sel.replace(rclass, '');
-
   store.set(ns + sel, val);
 };
 
@@ -200,9 +198,9 @@ Remember.prototype.select = function(e) {
   var el = e.target;
   if(~this.excepts.indexOf(el)) return this;
 
-  var sel = unique(el),
-      checked = el.checked,
-      ns = this.namespace;
+  var sel = unique(el);
+  var checked = el.checked;
+  var ns = this.namespace;
 
   // ignore classes, too transient
   sel = sel.replace(rclass, '');
